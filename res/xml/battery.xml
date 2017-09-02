@@ -62,13 +62,19 @@
    <PreferenceCategory
 
         android:key="wakelock_blocker_category"
-        android:title="@string/wakelock_blocker_title" >
+        android:title="@string/wakelock_blocker_title">
 
     <Preference
         android:key="wakelock_blocker"
         android:title="@string/wakelock_blocker_title"
         android:summary="@string/wakelock_blocker_summary"
-        android:fragment="com.titanium.tielements.fragments.WakeLockBlocker"/>
+        android:fragment="com.titanium.tielements.fragments.WakeLockBlocker" />
+
+    <Preference
+        android:key="alarm_blocker"
+        android:title="@string/alarm_blocker_title"
+        android:summary="@string/alarm_blocker_summary"
+        android:fragment="com.evolution.settings.fragments.AlarmBlocker" />
 
     </PreferenceCategory>
 
