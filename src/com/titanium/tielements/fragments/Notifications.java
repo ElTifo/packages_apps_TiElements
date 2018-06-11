@@ -39,7 +39,10 @@ public class Notifications extends SettingsPreferenceFragment implements
 
     private static final String TAG = "Notifications";
 
+    private static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+
     private Preference mChargingLeds;
+    private SwitchPreference mForceExpanded;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,11 @@ public class Notifications extends SettingsPreferenceFragment implements
                 && !getResources().getBoolean(
                         com.android.internal.R.bool.config_intrusiveBatteryLed)) {
             prefScreen.removePreference(mChargingLeds);
+
+        mForceExpanded = (SwitchPreference) findPreference(FORCE_EXPANDED_NOTIFICATIONS);
+        mForceExpanded.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) == 1));
+
         }
 
     }
@@ -77,6 +85,12 @@ public class Notifications extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final String key = preference.getKey();
+        if (preference == mForceExpanded) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.FORCE_EXPANDED_NOTIFICATIONS, checked ? 1 : 0);
+            return true;
+        }
         return true;
     }
 
