@@ -32,6 +32,19 @@
 
     <PreferenceCategory
 
+        android:key="notification_misc"
+        android:title="@string/notification_misc">
+
+        <com.titanium.support.preferences.SystemSettingSwitchPreference
+            android:key="notification_guts_kill_app_button"
+            android:title="@string/notification_guts_kill_app_button_title"
+            android:summary="@string/notification_guts_kill_app_button_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+
         android:key="call_noti_options"
         android:title="@string/call_noti_options" >
 
