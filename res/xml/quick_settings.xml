@@ -4,6 +4,11 @@
     android:title="@string/menu_quick_settings"
     xmlns:settings="http://schemas.android.com/apk/res-auto">
 
+    <PreferenceCategory
+   
+        android:key="qs_panel"
+        android:title="@string/qs_panel_title">
+
     <com.titanium.support.preferences.SecureSettingSwitchPreference
         android:key="status_bar_locked_on_secure_keyguard"
         android:title="@string/lockscreen_qs_disabled_title"
@@ -22,6 +27,14 @@
         android:entries="@array/quick_pulldown_entries"
         android:entryValues="@array/quick_pulldown_values"
         android:persistent="false" />
+
+    <com.evolution.settings.preference.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:summary="@string/qs_tile_title_visibility_summary"
+        android:defaultValue="true" />
+
+     </PreferenceCategory>
 
      <PreferenceCategory
 
@@ -50,6 +63,13 @@
         android:entries="@array/qs_battery_mode_entries"
         android:entryValues="@array/qs_battery_mode_values"
         android:defaultValue="1" />
+
+    <!-- QS tile titles -->
+    <com.titanium.support.preferences.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:summary="@string/qs_tile_title_visibility_summary"
+        android:defaultValue="true" />
 
     <PreferenceCategory
 
